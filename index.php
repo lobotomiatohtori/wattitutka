@@ -5,7 +5,7 @@
 
 <meta charset="UTF-8">
 <title>Wattitutka - pörssisähkösovellus</title>
-<link rel="stylesheet" type="text/css" href="wattistyle.css">
+<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
