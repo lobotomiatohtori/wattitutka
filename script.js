@@ -1,7 +1,7 @@
 const taulukko = document.getElementById("hinnat");
 const halvinElementti = document.getElementById("halvin");
 
-fetch("https://api.porssisahko.net/v1/latest-prices.json")
+fetch(https://porssisahko.net/api/v1/latest-prices.json)
   .then(response => response.json())
   .then(data => {
     // Tyhjennetään "Ladataan tietoja..." -rivi
