@@ -2,7 +2,10 @@ const taulukko = document.getElementById("hinnat");
 
 // Haetaan sähkön hinnt API:sta
 fetch("https://api.porssisahko.net/v1/latest-prices.json")
-.then(response => response.json())
+.then(response => {
+    console.log(response);
+    return response.json();
+})
 .then(data => {
     
     console.log(data);
