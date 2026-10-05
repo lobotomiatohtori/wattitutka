@@ -34,11 +34,12 @@ fetch("https://api.porssisahko.net/v1/latest-prices.json")
 })
 
 .catch(error => {
+    console.error("Virhe:", error);
     taulukko.innerHTML = `
-        <tr>
-            <td colspan="2">
-                Hintojen lataaminen epäonnistui.
-            </td>
-        </tr>
+    <tr>
+    <td colspan="2">
+    Hintojen lataaminen epäonnistui.
+    </td>
+    </tr>
     `;
 });
