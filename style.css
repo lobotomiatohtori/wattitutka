@@ -21,20 +21,25 @@ h1 {
 }
 
 #nykyinen-hinta {
-  
+  font-size: 3rem;
+  font-weight: bold;
+  color: #9EFF1F;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  background-color: white;
+  color: black;
+}
+
+th {
+  background-color: #9EFF1F;
+  color: black;
 }
 
 th,
 td {
   padding: 10px;
   border: 1px solid #ddd;
-}
-
-th {
-  background-color: #f0f0f0;
 }
