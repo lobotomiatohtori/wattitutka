@@ -1,4 +1,5 @@
 const taulukko = document.getElementById("hinnat");
+const nykyinenHinta = document.getElementById("nykyinen-hinta");
 
 fetch("https://api.spot-hinta.fi/Today")
   .then(response => response.json())
