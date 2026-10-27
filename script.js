@@ -12,6 +12,21 @@ fetch("https://api.spot-hinta.fi/Today")
         minute: "2-digit"
       });
 
+      const nyt = new Date();
+      const nykyinenRivi = data.find(rivi => {
+        const alku = new Date(rivi.DateTime);
+        const loppu = new Date(alku);
+        loppu.setMinutes(loppu.getMinutes() + 15);
+        return nyt >= alku && nyt < loppu;
+      });
+
+if (nykyinenRivi) {
+
+    nykyinenHinta.textContent =
+        (nykyinenRivi.PriceWithTax * 100).toFixed(2) +
+        " snt/kWh";
+}
+
       // spot-hinta.fi palauttaa hinnan euroina/kWh (esim. 0.05), joten kerrotaan 100:lla snt/kWh-muotoon
       const hintaSnt = (rivi.PriceWithTax * 100).toFixed(2);
 
