@@ -12,6 +12,10 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  font-family: "Orbitron", sans-serif;
+}
+
 .current-price {
   background-color: #10373D;
   border: 3px solid #9EFF1F;
