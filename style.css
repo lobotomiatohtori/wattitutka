@@ -26,6 +26,7 @@ h2 {
 }
 
 #nykyinen-hinta {
+  font-family: "Orbitron", sans-serif;
   font-size: 3rem;
   font-weight: bold;
   color: #9EFF1F;
