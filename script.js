@@ -1,5 +1,6 @@
 const taulukko = document.getElementById("hinnat");
 const nykyinenHinta = document.getElementById("nykyinen-hinta");
+const voimassaolo = document.getElementById("voimassaolo");
 
 fetch("https://api.spot-hinta.fi/Today")
   .then(response => response.json())
@@ -21,10 +22,25 @@ fetch("https://api.spot-hinta.fi/Today")
       });
 
 if (nykyinenRivi) {
-
-    nykyinenHinta.textContent =
-        (nykyinenRivi.PriceWithTax * 100).toFixed(2) +
-        " snt/kWh";
+  
+  const hinta = (nykyinenRivi.PriceWithTax * 100).toFixed(2);
+  nykyinenHinta.innerHTML = `
+  <span class="price-value">${hinta}</span>
+  <span class="price-unit">snt/kWh</span>
+  `;
+  
+  const alkuAika = new Date(nykyinenRivi.DateTime);
+  const loppuAika = new Date(alkuAika);
+  loppuAika.setMinutes(loppuAika.getMinutes() + 15);
+  
+  voimassaolo.textContent =
+    `Voimassa ${alkuAika.toLocaleTimeString("fi-FI", {
+      hour: "2-digit",
+      minute: "2-digit"
+    })} - ${loppuAika.toLocaleTimeString("fi-FI", {
+      hour: "2-digit",
+      minute: "2-digit"
+    })}`;
 }
 
       // spot-hinta.fi palauttaa hinnan euroina/kWh (esim. 0.05), joten kerrotaan 100:lla snt/kWh-muotoon
