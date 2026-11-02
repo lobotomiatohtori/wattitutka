@@ -1,3 +1,5 @@
+let priceChart = null;
+
 const nykyinenHinta = document.getElementById("nykyinen-hinta");
 const voimassaolo = document.getElementById("voimassaolo");
 const paivamaara = document.getElementById("paivamaara");
