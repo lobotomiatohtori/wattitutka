@@ -1,7 +1,7 @@
-const taulukko = document.getElementById("hinnat");
 const nykyinenHinta = document.getElementById("nykyinen-hinta");
 const voimassaolo = document.getElementById("voimassaolo");
 const paivamaara = document.getElementById("paivamaara");
+const hintalista = document.getElementById("hintalista");
 
 function haeHinnat() {
   
@@ -9,7 +9,7 @@ function haeHinnat() {
     .then(response => response.json())
     .then(data => {
       
-      taulukko.innerHTML = "";
+      hintalista.innerHTML = "";
       
       const nyt = new Date();
       const nykyinenRivi = data.find(rivi => {
@@ -52,41 +52,39 @@ function haeHinnat() {
           });
       }
       
-      data.forEach(rivi => {
-        const aika =
-          new Date(rivi.DateTime)
-          .toLocaleTimeString("fi-FI", {
-            hour: "2-digit",
-            minute: "2-digit"
-          });
-        
-        const hintaSnt =
-          (rivi.PriceWithTax * 100).toFixed(2);
-        
-        taulukko.innerHTML += `
-        <tr>
-        <td>${aika}</td>
-        <td>${hintaSnt}</td>
-        </tr>
-        `;
-      });
+data.forEach(rivi => {
+  const aika =
+    new Date(rivi.DateTime)
+    .toLocaleTimeString("fi-FI", {
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+  
+  const hintaSnt =
+    (rivi.PriceWithTax * 100).toFixed(2);
+  hintalista.innerHTML += `
+  <div class="price-row">
+  <span>${aika}</span>
+  <span>${hintaSnt} snt/kWh</span>
+  </div>
+  `;
+});
     
     })
-        .catch(error => {
-
-            console.error("Virhe:", error);
-
-            taulukko.innerHTML = `
-                <tr>
-                    <td colspan="2">
-                        Hintojen lataaminen epäonnistui.
-                    </td>
-                </tr>
-            `;
-
-            nykyinenHinta.textContent = "--";
-            voimassaolo.textContent = "";
-        });
+    
+    .catch(error => {
+      console.error("Virhe:", error);
+      taulukko.innerHTML = `
+      <tr>
+      <td colspan="2">
+      Hintojen lataaminen epäonnistui.
+      </td>
+      </tr>
+      `;
+      
+      nykyinenHinta.textContent = "--";
+      voimassaolo.textContent = "";
+    });
 }
 
 haeHinnat();
