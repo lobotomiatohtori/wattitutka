@@ -72,12 +72,22 @@ h2 {
 }
 
 .day-prices {
-  margin-top: 30px;
+  background-color: #10373D;
+  border: 3px solid #9EFF1F;
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 40px;
+  position: relative;
 }
 
-.day-prices h2 {
-  text-align: center;
-  color: white;
+.section-title {
+  display: inline-block;
+  background: #9EFF1F;
+  color: #00272B;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 6px;
   margin-bottom: 20px;
 }
 
