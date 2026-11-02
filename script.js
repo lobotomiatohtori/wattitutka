@@ -95,13 +95,9 @@ function haeHinnat() {
           datasets: [{
             label: "Tuntikeskiarvo",
             data: prices,
-            borderColor: "#9EFF1F",
-            backgroundColor: "rgba(158,255,31,0.15)",
-            borderWidth: 3,
-            fill: true,
-            tension: 0.35,
-            pointRadius: 4,
-            pointHoverRadius: 8
+            backgroundColor: "#9EFF1F",
+            hoverBackgroundColor: "#B7FF52",
+            borderRadius: 4
           }]
         },
         
@@ -111,6 +107,15 @@ function haeHinnat() {
           plugins: {
             legend: {
               display: false
+            },
+            tooltip: {
+              backgroundColor: "#10373D",
+              titleColor: "#9EFF1F",
+              bodyColor: "#FFFFFF",
+              borderColor: "#9EFF1F",
+              borderWidth: 2,
+              padding: 12,
+              displayColors: false
             }
           },
           
