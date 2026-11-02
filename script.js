@@ -35,7 +35,7 @@ function haeHinnat() {
         );
         
         voimassaolo.textContent =
-          `Kello ${alkuAika.toLocaleTimeString("fi-FI", {
+          `kello ${alkuAika.toLocaleTimeString("fi-FI", {
             hour: "2-digit",
             minute: "2-digit"
           })} - ${loppuAika.toLocaleTimeString("fi-FI", {
