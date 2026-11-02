@@ -72,7 +72,7 @@ h2 {
 }
 
 .day-prices {
-  background-color: #10373D;
+  background-color: #00272B;
   border: 3px solid #9EFF1F;
   border-radius: 10px;
   padding: 25px;
@@ -94,7 +94,7 @@ h2 {
 .price-row {
   display: flex;
   justify-content: space-between;
-  background: #00272B;
+  background: #10373D;
   border-left: 4px solid #9EFF1F;
   padding: 14px 18px;
   margin-bottom: 8px;
