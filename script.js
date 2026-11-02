@@ -1,6 +1,7 @@
 const taulukko = document.getElementById("hinnat");
 const nykyinenHinta = document.getElementById("nykyinen-hinta");
 const voimassaolo = document.getElementById("voimassaolo");
+const paivamaara = document.getElementById("paivamaara");
 
 function haeHinnat() {
   
@@ -34,13 +35,21 @@ function haeHinnat() {
         );
         
         voimassaolo.textContent =
-          `Voimassa ${alkuAika.toLocaleTimeString("fi-FI", {
+          `Kello ${alkuAika.toLocaleTimeString("fi-FI", {
             hour: "2-digit",
             minute: "2-digit"
           })} - ${loppuAika.toLocaleTimeString("fi-FI", {
             hour: "2-digit",
             minute: "2-digit"
           })}`;
+
+        paivamaara.textContent =
+          nyt.toLocaleDateString("fi-FI", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+          });
       }
       
       data.forEach(rivi => {
