@@ -71,20 +71,23 @@ h2 {
   font-size: 0.9rem;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #00272B;
+.day-prices {
+  margin-top: 30px;
+}
+
+.day-prices h2 {
+  text-align: center;
   color: white;
+  margin-bottom: 20px;
 }
 
-th {
-  background-color: #9EFF1F;
-  color: black;
-}
-
-th,
-td {
-  padding: 10px;
-  border: 1px solid #ddd;
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  background: #10373D;
+  border-left: 4px solid #9EFF1F;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  color: white;
 }
