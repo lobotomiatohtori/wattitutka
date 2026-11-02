@@ -72,23 +72,27 @@ h2 {
 }
 
 .day-prices {
-  background-color: #00272B;
+  background-color: #10373D;
   border: 3px solid #9EFF1F;
   border-radius: 10px;
-  padding: 25px;
   margin-top: 40px;
-  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
 }
 
 .section-title {
-  display: inline-block;
   background: #9EFF1F;
   color: #00272B;
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  padding: 10px 20px;
-  border-radius: 6px;
-  margin-bottom: 20px;
+  width: 100%;
+  padding: 15px 25px;
+  box-sizing: border-box;
+}
+
+.chart-wrapper {
+  padding: 20px;
+  height: 400px;
 }
 
 .price-row {
