@@ -89,7 +89,7 @@ function haeHinnat() {
       
       if (priceChart) {priceChart.destroy();}
       priceChart = new Chart(ctx, {
-        type: "line",
+        type: "bar",
         data: {
           labels: labels,
           datasets: [{
