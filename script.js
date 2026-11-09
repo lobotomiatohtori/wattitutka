@@ -4,8 +4,7 @@ const nykyinenHinta = document.getElementById("nykyinen-hinta");
 const voimassaolo = document.getElementById("voimassaolo");
 const paivamaara = document.getElementById("paivamaara");
 
-function haeHinnat() {
-  
+function paivitaNykyinenHinta() {
   fetch("https://api.spot-hinta.fi/Today")
     .then(response => response.json())
     .then(data => {
@@ -20,35 +19,44 @@ function haeHinnat() {
       });
       
       if (nykyinenRivi) {
-        
         const hinta = (nykyinenRivi.PriceWithTax * 100).toFixed(2);
-        
         nykyinenHinta.innerHTML = `
-        <span class="price-value">${hinta}</span>
-        <span class="price-unit">snt/kWh</span>
+        <span class="price-value">
+        ${hinta}
+        </span>
+        
+        <span class="price-unit">
+        snt/kWh
+        </span>
         `;
         
         const alkuAika = new Date(nykyinenRivi.DateTime);
         const loppuAika = new Date(alkuAika);
         loppuAika.setMinutes(loppuAika.getMinutes() + 15);
-        
         voimassaolo.textContent =
-          `kello ${alkuAika.toLocaleTimeString("fi-FI", {
-            hour: "2-digit",
-            minute: "2-digit"
-          })} - ${loppuAika.toLocaleTimeString("fi-FI", {
-            hour: "2-digit",
-            minute: "2-digit"
-          })}`;
-        
-        paivamaara.textContent =
-          nyt.toLocaleDateString("fi-FI", {
-            weekday: "long",
-            day: "numeric",
-            month: "long",
-            year: "numeric"
-          });
+          `kello ${alkuAika.toLocaleTimeString(
+            "fi-FI",
+            {
+              hour: "2-digit",
+              minute: "2-digit"
+            }
+          
+          )} - ${loppuAika.toLocaleTimeString(
+            "fi-FI",
+            {
+              hour: "2-digit",
+              minute: "2-digit"
+            }
+          )}`;
       }
+    });
+}
+
+function haePaivanHinnat() {
+  
+  fetch("https://api.spot-hinta.fi/Today")
+    .then(response => response.json())
+    .then(data => {
       
       // -----------------------------------
       // LUODAAN TUNTIKESKIARVO KUVAAJAA VARTEN
@@ -181,8 +189,11 @@ function haeHinnat() {
 
 }
 
-// Ensimmäinen haku
-haeHinnat();
+// Piirretään päivän hintakaavio
+haePaivanHinnat();
 
-// Päivitys minuutin välein
-setInterval(haeHinnat, 60000);
+// Päivitetään nykyinen hinta
+paivitaNykyinenHinta();
+
+// Päivitetään nykyinen hinta minuutin välein
+setInterval(paivitaNykyinenHinta, 60000);
