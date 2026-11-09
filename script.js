@@ -3,6 +3,7 @@ let priceChart = null;
 const nykyinenHinta = document.getElementById("nykyinen-hinta");
 const voimassaolo = document.getElementById("voimassaolo");
 const paivamaara = document.getElementById("paivamaara");
+const quarterList = document.getElementById("varttihinnat");
 
 function paivitaNykyinenHinta() {
   fetch("https://api.spot-hinta.fi/Today")
