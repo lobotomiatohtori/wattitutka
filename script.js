@@ -49,6 +49,30 @@ function paivitaNykyinenHinta() {
               minute: "2-digit"
             }
           )}`;
+        
+        const nykyinenTunti = nykyinenRivi.DateTime.substring(0, 13);
+        const tunninVartit = data.filter(rivi => rivi.DateTime.startsWith(nykyinenTunti));
+        
+        varttihinnat.innerHTML = "";
+        tunninVartit.forEach(rivi => {
+          const aika = new Date(rivi.DateTime).toLocaleTimeString("fi-FI", {
+            hour: "2-digit",
+            minute: "2-digit"
+          });
+          
+          const vartinhinta = (rivi.PriceWithTax * 100).toFixed(2);
+          const aktiivinen = rivi.DateTime === nykyinenRivi.DateTime;
+          
+          varttihinnat.innerHTML += `
+          <div class="
+          quarter-row
+          ${aktiivinen ? "active-quarter" : ""}">
+          
+          <span>${aika}</span>
+          <span>${vartinhinta} snt/kWh</span>
+          </div>
+          `;
+        });
       }
     });
 }
