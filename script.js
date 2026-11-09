@@ -104,6 +104,10 @@ function haeHinnat() {
         options: {
           responsive: true,
           maintainAspectRatio: false,
+          interaction: {
+            mode: "index",
+            intersect: true
+          },
           plugins: {
             legend: {
               display: false
