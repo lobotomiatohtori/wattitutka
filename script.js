@@ -145,7 +145,8 @@ function haeHinnat() {
                   return context.parsed.y + " snt/kWh";
                 }
               }
-            },
+            }
+          },
           
           scales: {
             x: {
