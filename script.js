@@ -119,7 +119,7 @@ function haeHinnat() {
               borderColor: "#9EFF1F",
               borderWidth: 2,
               padding: 16,
-              cornerRadius: 8,
+              cornerRadius: 1,
               displayColors: false,
               caretSize: 0,
               
@@ -130,8 +130,13 @@ function haeHinnat() {
               bodyFont: {
                 size: 14
               },
-            }
-          },
+              callbacks: {
+                label: function(context) {
+                  return "Keskiarvo: " +
+                    context.parsed.y + " snt/kWh";
+                }
+              }
+            },
           
           scales: {
             x: {
