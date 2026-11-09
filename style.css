@@ -128,7 +128,6 @@ h2 {
 }
 
 .active-quarter {
-  background-color: #9EFF1F;
-  color: #00272B;
-  font-weight: bold;
+  border-left: 6px solid #9EFF1F;
+  font-weight: 600;
 }
