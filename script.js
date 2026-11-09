@@ -105,7 +105,11 @@ function haeHinnat() {
           responsive: true,
           maintainAspectRatio: false,
           interaction: {
-            mode: "index",
+            mode: "nearest",
+            intersect: true
+          },
+          hover: {
+            mode: "nearest",
             intersect: true
           },
           plugins: {
