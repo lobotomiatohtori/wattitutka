@@ -135,9 +135,14 @@ function haeHinnat() {
                 size: 14
               },
               callbacks: {
-                label: function(context) {
-                  return "Keskiarvo: " +
-                    context.parsed.y + " snt/kWh";
+                title: function(context) {
+                  return context[0].label;
+                },
+                label: function() {
+                  return "Keskiarvo";
+                },
+                afterLabel: function(context) {
+                  return context.parsed.y + " snt/kWh";
                 }
               }
             },
