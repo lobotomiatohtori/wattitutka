@@ -105,3 +105,30 @@ h2 {
   border-radius: 8px;
   color: white;
 }
+
+.quarter-prices {
+  background-color: #10373D;
+  border: 3px solid #9EFF1F;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.quarter-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 20px;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.quarter-row:last-child {
+  border-bottom: none;
+}
+
+.active-quarter {
+  background-color: #9EFF1F;
+  color: #00272B;
+  font-weight: bold;
+}
