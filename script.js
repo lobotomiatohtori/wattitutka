@@ -113,13 +113,23 @@ function haeHinnat() {
               display: false
             },
             tooltip: {
-              backgroundColor: "#10373D",
+              backgroundColor: "#00272B",
               titleColor: "#9EFF1F",
               bodyColor: "#FFFFFF",
               borderColor: "#9EFF1F",
               borderWidth: 2,
-              padding: 12,
-              displayColors: false
+              padding: 16,
+              cornerRadius: 8,
+              displayColors: false,
+              caretSize: 0,
+              
+              titleFont: {
+                size: 16,
+                weight: "bold"
+              },
+              bodyFont: {
+                size: 14
+              },
             }
           },
           
