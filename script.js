@@ -41,7 +41,6 @@ function paivitaNykyinenHinta() {
               hour: "2-digit",
               minute: "2-digit"
             }
-          
           )} - ${loppuAika.toLocaleTimeString(
             "fi-FI",
             {
@@ -49,6 +48,13 @@ function paivitaNykyinenHinta() {
               minute: "2-digit"
             }
           )}`;
+        paivamaara.textContent = 
+          nyt.toLocaleDateString("fi-FI", { 
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+          });
         
         const nykyinenTunti = nykyinenRivi.DateTime.substring(0, 13);
         const tunninVartit = data.filter(rivi => rivi.DateTime.startsWith(nykyinenTunti));
