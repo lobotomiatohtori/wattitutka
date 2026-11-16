@@ -136,7 +136,6 @@ h2 {
 .active-quarter::before {
   content: "";
   position: absolute;
-  left: -10px;
   top: 8px;
   bottom: 8px;
   width: 4px;
