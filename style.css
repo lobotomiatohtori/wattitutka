@@ -129,8 +129,17 @@ h2 {
 }
 
 .active-quarter {
-  border-left: 5px solid #9EFF1F;
-  padding-left: 15px;
-  margin-left: 5px;
+  position: relative;
   font-weight: 600;
+}
+
+.active-quarter::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 8px;
+  bottom: 8px;
+  width: 4px;
+  background-color: #9EFF1F;
+  border-radius: 2px;
 }
