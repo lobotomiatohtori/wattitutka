@@ -4,12 +4,18 @@ const nykyinenHinta = document.getElementById("nykyinen-hinta");
 const voimassaolo = document.getElementById("voimassaolo");
 const paivamaara = document.getElementById("paivamaara");
 const varttihinnat = document.getElementById("varttihinnat");
+const hintaraja = document.getElementById("hintaraja");
+const haetunnit = document.getElementById("haetunnit");
+const edullisetTunnit = document.getElementById("edulliset-tunnit");
+
+let paivanData = [];
 
 function paivitaNykyinenHinta() {
   fetch("https://api.spot-hinta.fi/Today")
     .then(response => response.json())
     .then(data => {
-      
+
+      paivanData = data;
       const nyt = new Date();
       const nykyinenRivi = data.find(rivi => {
         
@@ -219,6 +225,31 @@ function haePaivanHinnat() {
     });
 
 }
+
+haetunnit.addEventListener("click", () => {
+  const raja = parseFloat(hintaraja.value);
+  const osumat = paivanData.filter(rivi => (rivi.PriceWithTax * 100) <= raja);
+  
+  if (osumat.lenght === 0) {
+    edullisetTunnit.innerHTML = "Tämän hintarajan alittavia ajankohtia ei löytynyt.";
+    return;
+  }
+
+  edullisetTunnit.innerHTML = "";
+  
+  osumat.forEach(rivi => {
+    const aika = new Date(rivi.DateTime) .toLocaleTimeString("fi-FI", {hour: "2-digit", minute: "2-digit"});
+    const hinta = (rivi.PriceWithTax * 100) .toFixed(2);
+    
+    edullisetTunnit.innerHTML += `
+    <div class="quarter-row">
+    <span>${aika}</span>
+    <span>${hinta} snt/kWh</span>
+    </div>
+    `;
+
+  });
+});
 
 // Piirretään päivän hintakaavio
 haePaivanHinnat();
