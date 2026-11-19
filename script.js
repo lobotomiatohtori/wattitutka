@@ -230,7 +230,7 @@ haetunnit.addEventListener("click", () => {
   const raja = parseFloat(hintaraja.value);
   const osumat = paivanData.filter(rivi => (rivi.PriceWithTax * 100) <= raja);
   
-  if (osumat.lenght === 0) {
+  if (osumat.length === 0) {
     edullisetTunnit.innerHTML = "Tämän hintarajan alittavia ajankohtia ei löytynyt.";
     return;
   }
