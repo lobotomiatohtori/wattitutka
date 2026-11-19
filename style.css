@@ -142,3 +142,48 @@ h2 {
   width: 5px;
   background-color: #9EFF1F;
 }
+
+.price-limit {
+  background-color: #10373D;
+  border: 3px solid #9EFF1F;
+  border-radius: 10px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.price-limit-content {
+  padding: 20px;
+}
+
+.price-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.price-input input {
+  background: #00272B;
+  color: white;
+  border: 1px solid #9EFF1F;
+  border-radius: 5px;
+  padding: 10px;
+  width: 120px;
+}
+
+#haetunnit {
+  background-color: #9EFF1F;
+  color: #00272B;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#edulliset-tunnit {
+  margin-top: 20px;
+  color: white;
+}
